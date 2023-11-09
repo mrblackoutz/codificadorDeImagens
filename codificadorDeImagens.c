@@ -3,9 +3,14 @@
 * Autores: Gustavo Nascimento Siqueira & Vinicius Sanches Cappatti;
 * Contato: gustavonascimento.siqueira@mackenzista.com.br & 32342901@mackenzista.com.br
 **************************************************************************************************************************************** */
+#include "funcoes.h"
 #include <stdio.h>
 
 int main(){
-    printf("Hello world!");
+    int v[5][3] = {{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}};
+    int k[5][3] = {{1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}};
+    int r[5][3] = {{0,1,0}, {0,1,0}, {0,1,0}, {0,1,0}, {0,0,1}};
+    int t[5][3] = {{0,0,0}, {1,1,1}, {1,1,1}, {0,0,0}, {0,0,0}};
+
     return 0;
 }

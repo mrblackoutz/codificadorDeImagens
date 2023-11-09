@@ -4,10 +4,13 @@
 * Contato: gustavonascimento.siqueira@mackenzista.com.br & 32342901@mackenzista.com.br
 **************************************************************************************************************************************** */
 
-#ifndef funcoes.h
+#ifndef _funcoes.h
 #define MAX_LIN 1024
 #define MAX_COL 768
 
 int defCor( int tamLin, int tamCol, int matriz[MAX_LIN][MAX_COL]);
+void imprimeMatriz(int tamLin, int tamCol, int matriz[MAX_LIN][MAX_COL]);
+void preencheQuadrante(int matriz[MAX_LIN][MAX_COL], int quadrante[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniCol, int fimCol);
+int divideMatriz(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniCol, int fimCol);
 
 #endif
