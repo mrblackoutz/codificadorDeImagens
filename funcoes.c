@@ -9,11 +9,11 @@
 #include <math.h>
 
 
-int defCor(int matriz[][], int tamLin, int tamCol){
+int defCor( int tamLin, int tamCol, int matriz[MAX_LIN][MAX_COL]){
     int i, j, ehB = 1;
 
     for(i = 0; i < tamLin; i++){
-        for(j = 0; j < tamCol){
+        for(j = 0; j < tamCol; j++){
             if(matriz[i][j] != 0){
                 ehB = 0;
                 break;
@@ -25,7 +25,7 @@ int defCor(int matriz[][], int tamLin, int tamCol){
 
     if(ehB == 0){
         for(i = 0; i < tamLin; i++){
-            for(j = 0; j < tamCol){
+            for(j = 0; j < tamCol; j++){
                 if(matriz[i][j] != 1){
                     ehP = 0;
                     break;
@@ -38,3 +38,4 @@ int defCor(int matriz[][], int tamLin, int tamCol){
     else if(ehB == 0 && ehP == 0){return 0;}
     else{return 999;}
 }
+
