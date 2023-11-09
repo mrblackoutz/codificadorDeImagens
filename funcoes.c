@@ -8,18 +8,29 @@
 #include <stdio.h>
 #include <math.h>
 
-int defCor(int linha[], int coluna[], int tam){
-    int b, ehB = 1;
 
-    for(b = 0; b < tam; b++){
-        if(vetor[b] != 0){ehB = 0;}
+int defCor(int matriz[][], int tamLin, int tamCol){
+    int i, j, ehB = 1;
+
+    for(i = 0; i < tamLin; i++){
+        for(j = 0; j < tamCol){
+            if(matriz[i][j] != 0){
+                ehB = 0;
+                break;
+        }
     }
+}
 
-    int p, ehP = 1;
+    int ehP = 1;
 
     if(ehB == 0){
-        for(p = 0; p < tam; p++){
-            if(vetor[p] != 1){ehP = 0;}
+        for(i = 0; i < tamLin; i++){
+            for(j = 0; j < tamCol){
+                if(matriz[i][j] != 1){
+                    ehP = 0;
+                    break;
+                }
+            }
         }
     }
 
