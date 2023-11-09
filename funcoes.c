@@ -11,4 +11,17 @@
 int ehUniforme(int vetor[], int tam, int cor){
     int i, corBarra = cor;
     
+    if(tam == 1){return v[0];}
+    
+    else if(cor > 1){return}
+
+    else{
+        for(i = 0; i < tam; i++){
+            if(v[i] != cor){
+                corBarra++;
+                return ehUniforme(vetor, tam, corBarra);
+            }
+
+        }
+    }
 }
