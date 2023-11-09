@@ -49,14 +49,10 @@ void imprimeMatriz(int tamLin, int tamCol, int matriz[MAX_LIN][MAX_COL]){
     }
 }
 
-void preencheQuadrante(int matriz[MAX_LIN][MAX_COL], int quadrante[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniCol, int fimCol){
-    int tamLinQuad = fimLin - iniLin;
-    int tamColQuad = fimCol - iniCol;
-
-    int i, j;
-    for(i = 0; i < tamLinQuad; i++){
-        for (j = 0; j < tamColQuad; j++){
-            quadrante[i][j] = matriz[iniLin + i][iniCol + j];
+void preencherQuadrante(int matriz[][MAX_COL], int quadrante[][MAX_COL], int iniLin, int fimLin, int iniCol, int fimCol){
+    for (int i = iniLin; i <= fimLin; ++i) {
+        for (int j = iniCol; j <= fimCol; ++j) {
+            quadrante[i - iniLin][j - iniCol] = matriz[i][j];
         }
     }
 }
