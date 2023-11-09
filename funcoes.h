@@ -8,5 +8,6 @@
 #define MAX_LIN 1024
 #define MAX_COL 768
 
+int defCor( int tamLin, int tamCol, int matriz[MAX_LIN][MAX_COL]);
 
 #endif
