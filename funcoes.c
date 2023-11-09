@@ -9,7 +9,7 @@
 #include <math.h>
 
 
-int defCor( int tamLin, int tamCol, int matriz[MAX_LIN][MAX_COL]){
+int defCor(int tamLin, int tamCol, int matriz[MAX_LIN][MAX_COL]){
     int i, j, ehB = 1;
 
     for(i = 0; i < tamLin; i++){
@@ -39,3 +39,12 @@ int defCor( int tamLin, int tamCol, int matriz[MAX_LIN][MAX_COL]){
     else{return 999;}
 }
 
+int imprimeMatriz(int tamLin, int tamCol, int matriz[MAX_LIN][MAX_COL]){
+    int i, j;
+    for(i = 0, i < tamLin; i ++){
+        for(j = 0; j < tamCol; j++){
+            printf("%d", matriz[i][j]);
+        }
+        printf("\n");
+    }
+}
