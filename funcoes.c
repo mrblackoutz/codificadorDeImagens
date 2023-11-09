@@ -13,9 +13,10 @@ bool cor_uniforme(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniC
   int cor = matriz[iniLin][iniCol];
 
   // Percorre todos os elementos da matriz
-  for (int i = iniLin; i < fimLin; i++)
+  int i,j;
+  for (i = iniLin; i < fimLin; i++)
   {
-    for (int j = iniCol; j < fimCol; j++)
+    for (j = iniCol; j < fimCol; j++)
     {
       // Se algum elemento tiver uma cor diferente da cor armazenada, retorna falso
       if (matriz[i][j] != cor)
@@ -41,19 +42,22 @@ void imprimeMatriz(int tamLin, int tamCol, int matriz[MAX_LIN][MAX_COL])
   }
 }
 
-void preencherQuadrante(int matriz[][MAX_COL], int quadrante[][MAX_COL], int iniLin, int fimLin, int iniCol, int fimCol)
+void preencherQuadrante(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniCol, int fimCol)
 {
-  for (int i = iniLin; i <= fimLin; ++i)
+  int i,j;
+  for (i = iniLin; i <= fimLin; ++i)
   {
-    for (int j = iniCol; j <= fimCol; ++j)
+    for (j = iniCol; j <= fimCol; ++j)
     {
-      quadrante[i - iniLin][j - iniCol] = matriz[i][j];
+      int valor = getchar() - '0';
+      valor != 0 && valor != 1 ? matriz[i][j] = valor : printf("Valor invalido\n");
     }
   }
 }
 
 int divideMatriz(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniCol, int fimCol)
 {
+  int i,j,q;
   int meioLin = ceil((iniLin + fimLin) / 2);
   int meioCol = ceil((iniCol + fimCol) / 2);
 
@@ -98,7 +102,7 @@ int divideMatriz(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniCo
   // 0 0 0 X X
 
   char codigo[2400000];
-  strcat(codigo, 'X');
+  strcat(codigo, "X");
 
   // Armazena os limites de cada quadrante em um array bidimensional
   int limites[4][4] = {
@@ -109,19 +113,19 @@ int divideMatriz(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniCo
       };
 
   // Percorre cada quadrante
-  for (int q = 0; q < 4; q++)
+  for (q = 0; q < 4; q++)
   {
     // Verifica se a cor é uniforme no quadrante atual
     if (cor_uniforme(matriz, limites[q][0], limites[q][1], limites[q][2], limites[q][3]))
     {
       // Se a cor for uniforme, armazena a cor no código
-      strcat(codigo, matriz[limites[q][0]][limites[q][2]] == 0 ? 'B' : 'P');
+      strcat(codigo, (matriz[limites[q][0]][limites[q][2]] == 0 ? "B" : "P"));
     } else {
       // Se a cor não for uniforme, divide o quadrante e armazena o código do subquadrante
-      for(int i = limites[q][0]; i < limites[q][1]; ++i) {
-        for (int j = limites[q][2]; j < limites[q][3]; ++j)
+      for(i = limites[q][0]; i < limites[q][1]; ++i) {
+        for (j = limites[q][2]; j < limites[q][3]; ++j)
         {
-          strcat(codigo, matriz[i][j] == 0 ? 'B' : 'P');
+          strcat(codigo, matriz[i][j] == 0 ? "B" : "P");
         }
       }
       divideMatriz(matriz, limites[q][0], limites[q][1], limites[q][2], limites[q][3]);
