@@ -8,20 +8,22 @@
 #include <stdio.h>
 #include <math.h>
 
-int ehUniforme(int vetor[], int tam, int cor){
-    int i, corBarra = cor;
-    
-    if(tam == 1){return v[0];}
-    
-    else if(cor > 1){return}
+int defCor(int linha[], int coluna[], int tam){
+    int b, ehB = 1;
 
-    else{
-        for(i = 0; i < tam; i++){
-            if(v[i] != cor){
-                corBarra++;
-                return ehUniforme(vetor, tam, corBarra);
-            }
+    for(b = 0; b < tam; b++){
+        if(vetor[b] != 0){ehB = 0;}
+    }
 
+    int p, ehP = 1;
+
+    if(ehB == 0){
+        for(p = 0; p < tam; p++){
+            if(vetor[p] != 1){ehP = 0;}
         }
     }
+
+    if(ehB == 1 || ehP == 1){return 1;}
+    else if(ehB == 0 && ehP == 0){return 0;}
+    else{return 999;}
 }
