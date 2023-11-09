@@ -61,5 +61,12 @@ int divideMatriz(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniCo
     int meioLin = ceil((iniLin + fimLin) / 2);
     int meioCol = ceil((iniCol + fimCol) / 2);
 
+    /*int q1[meioCol - iniCol][meioLin - iniLin];
+    preencheQuadrante(matriz, q1, 0, meioLin, 0, meioCol); função ainda não funciona*/
+
+    /*int q2[meioCol - iniCol][fimLin - meioLin];
+    preencheQuadrante(matriz, q1, meioLin, fimLin, 0, meioCol); função ainda não funciona*/
+
+
     return 0;
 }   
