@@ -10,5 +10,5 @@
 
 int ehUniforme(int vetor[], int tam, int cor){
     int i, corBarra = cor;
-    if(tam == )
+    
 }
