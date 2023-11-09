@@ -39,7 +39,7 @@ int defCor(int tamLin, int tamCol, int matriz[MAX_LIN][MAX_COL]){
     else{return 999;}
 }
 
-int imprimeMatriz(int tamLin, int tamCol, int matriz[MAX_LIN][MAX_COL]){
+void imprimeMatriz(int tamLin, int tamCol, int matriz[MAX_LIN][MAX_COL]){
     int i, j;
     for(i = 0, i < tamLin; i ++){
         for(j = 0; j < tamCol; j++){
@@ -49,6 +49,13 @@ int imprimeMatriz(int tamLin, int tamCol, int matriz[MAX_LIN][MAX_COL]){
     }
 }
 
-int divideMatriz(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniCol, int fimCol){
+void preencheQuadrante(int matriz[MAX_LIN][MAX_COL], int quadrante[] int iniLin, int fimLin, int iniCol, int fimCol){
     
+}
+
+int divideMatriz(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniCol, int fimCol){
+    int meioLin = ceil((iniLin + fimLin) / 2);
+    int meioCol = ceil((iniCol + fimCol) / 2);
+
+
 }
