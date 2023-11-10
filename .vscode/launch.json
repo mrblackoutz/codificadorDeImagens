@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/55519/OneDrive/Documentos/GitHub/codificadorDeImagens",
-      "program": "c:/Users/55519/OneDrive/Documentos/GitHub/codificadorDeImagens/build/Debug/outDebug",
+      "cwd": "c:/Users/gutos/OneDrive/Documentos/DOCUMENTOS/MACKENZIE/FCI/AP2/codificadorDeImagens",
+      "program": "c:/Users/gutos/OneDrive/Documentos/DOCUMENTOS/MACKENZIE/FCI/AP2/codificadorDeImagens/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
