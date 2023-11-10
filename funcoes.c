@@ -124,17 +124,29 @@ void divideMatriz(int matriz[MAX_LIN][MAX_COL], int posiniLin, int posfimLin, in
       // Se a cor for uniforme, armazena a cor no código
       strcat(codigo, (matriz[limites[q][0]][limites[q][2]] == 0 ? "B" : "P"));
     } else {
-      // Se a cor não for uniforme, Verificamos se estamos no menor tamanho possível 
+      // Se a cor não for uniforme, Verificamos se estamos no menor tamanho possível    
       if (limites[q][1] - limites[q][0] < 1 && limites[q][3] - limites[q][2] < 1)
       {
-        // Se estamos no menor tamanho possível, armazena a cor no código
-        for (i = limites[q][0]; i <= limites[q][1]; ++i)
+        // Se estamos com o quadrante no menor tamanho possível, vamos armazena a cor no código
+        
+        // Verificamos se temos apenas uma linha, se sim, então não há o 3º e 4º Quadrante
+        if (posiniLin == posfimLin)
         {
-          for (j = limites[q][2]; j <= limites[q][3]; ++j)
+          /* code */
+        } else if (posiniCol == posfimCol)
+        // Verificamos se temos apenas uma coluna, se sim, então não há o 2º e 4º Quadrante
+        {
+          /* code */
+        } else {
+          for (i = limites[q][0]; i <= limites[q][1]; ++i)
           {
-            strcat(codigo, matriz[i][j] == 0 ? "B" : "P");
+            for (j = limites[q][2]; j <= limites[q][3]; ++j)
+            {
+              strcat(codigo, matriz[i][j] == 0 ? "B" : "P");
+            }
           }
         }
+
       } else {
         // Se não estamos no menor tamanho possível, divide o quadrante
         // e ao terminar a pilha, o código(string) é passado como endereço no parametro
