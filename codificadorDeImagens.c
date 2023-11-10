@@ -37,6 +37,15 @@ int main(){
     //preencheQuadrante(v1, 0, 2, 1, 2);
     //imprimeMatriz(3, 2, v1);
     
+    divideMatriz(v1, 0, 2, 1, 2);
+    imprimeMatriz(3, 2, v1);
+
+    divideMatriz(v2, 0, 2, 1, 2);
+    imprimeMatriz(3, 2, v2);
+
+    divideMatriz(v3, 0, 2, 1, 2);
+    imprimeMatriz(3, 2, v3);
+
     divideMatriz(v4, 0, 2, 1, 2);
     imprimeMatriz(3, 2, v4);
 
