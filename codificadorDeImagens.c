@@ -16,17 +16,21 @@ int main()
       };
   // X X X B B B P B X B P P X X B P B P P P P X X B P X B P B X B P B
 
+  // X X X B B B P B X B P B P P X X B P B P P P P X X B P B B X B P B P B X B P B B B
+
   // ... restante do código ...
   int i,j;
   printf(" ");
-  for(i=0;i<10;i++){
-  	for(j=0;j<10;j++){
+  for(i=0;i<5;i++){
+  	for(j=0;j<7;j++){
   	printf("%d ", v[i][j]);
   }
    printf("\n ");
   }
+  char codigo[500] = "\n";
+  divideMatriz(v, 0, 4, 0, 6, codigo);
 
-  divideMatriz(v, 0, 5, 0, 7);
+  printf("%s", codigo);
 
   return 0;
 }

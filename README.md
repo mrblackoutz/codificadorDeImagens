@@ -5,11 +5,11 @@ Este projeto é um codificador de imagens binárias no formato PBM. Ele converte
 
 Por exemplo, para uma matriz 3x3 de cores:
 
-```
+|-----|
 |0|0|1|
 |0|1|1|
 |0|0|1|
-```
+
 
 O código gerado será: `XXBBBPPBP`.
 
@@ -31,4 +31,3 @@ Para executar este projeto no Visual Studio Code, siga as etapas abaixo:
 4. Atualize a variável de ambiente PATH nas variáveis de ambiente do sistema para incluir o caminho da pasta `bin` onde está o `gcc`. Isso permitirá que o compilador `gcc` seja acessado de qualquer lugar no seu sistema.
 
 Agora você deve ser capaz de compilar e executar o projeto no Visual Studio Code. Se você encontrar algum problema, sinta-se à vontade para abrir uma issue.
-```
