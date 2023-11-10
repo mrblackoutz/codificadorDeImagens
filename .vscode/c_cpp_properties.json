@@ -1,14 +1,14 @@
 {
   "configurations": [
     {
-      "name": "windows-msvc-x86",
+      "name": "windows-gcc-x86",
       "includePath": [
         "${workspaceFolder}/**"
       ],
-      "compilerPath": "C:/MinGW/bin/cl.exe",
-      "cStandard": "${default}",
+      "compilerPath": "C:/MinGW/bin/gcc.exe",
+      "cStandard": "c99",
       "cppStandard": "${default}",
-      "intelliSenseMode": "windows-msvc-x86",
+      "intelliSenseMode": "windows-gcc-x86",
       "compilerArgs": [
         ""
       ]

@@ -5,8 +5,8 @@
 **************************************************************************************************************************************** */
 
 #ifndef FUNCOES_H
-#define MAX_LIN 1024
-#define MAX_COL 768
+#define MAX_LIN 10
+#define MAX_COL 10
 
   #include <stdbool.h>
   #include <stdio.h>

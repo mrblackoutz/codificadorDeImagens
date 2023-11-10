@@ -55,53 +55,55 @@ void preencherQuadrante(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, in
   }
 }
 
-int divideMatriz(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniCol, int fimCol)
-{
-  int i,j,q;
-  int meioLin = ceil((iniLin + fimLin) / 2);
-  int meioCol = ceil((iniCol + fimCol) / 2);
+char divideMatriz(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniCol, int fimCol) {
+  int i=0;
+  int j=0;
+  int q=0;
+  
+  int meioLin = (int)ceil((iniLin + fimLin) / 2);
+  int meioCol = (int)ceil((iniCol + fimCol) / 2);
 
   // Define o Inicio da LINHA do 1º Quartil && Define o Final da LINHA do 1º Quartil
   int iniLinQ1 = iniLin;
-  int fimLinQ1 = meioLin;
+  int fimLinQ1 = meioLin-1;
   // Define o Inicio da COLUNA do 1º Quartil && Define o Final da COLUNA do 1º Quartil
   int iniColQ1 = iniCol;
-  int fimColQ1 = meioCol;
+  int fimColQ1 = meioCol-1;
   // X X X 0 0
   // X X X 0 0
   // 0 0 0 0 0
 
   // Define o Inicio da LINHA do 2º Quartil && Define o Final da LINHA do 2º Quartil
   int iniLinQ2 = meioLin;
-  int fimLinQ2 = fimLin;
+  int fimLinQ2 = fimLin-1;
   // Define o Inicio da COLUNA do 2º Quartil && Define o Final da COLUNA do 2º Quartil
   int iniColQ2 = iniCol;
-  int fimColQ2 = meioCol;
+  int fimColQ2 = meioCol-1;
   // 0 0 0 X X
   // 0 0 0 X X
   // 0 0 0 0 0
 
   // Define o Inicio da LINHA do 3º Quartil && Define o Final da LINHA do 3º Quartil
   int iniLinQ3 = iniLin;
-  int fimLinQ3 = meioLin;
+  int fimLinQ3 = meioLin-1;
   // Define o Inicio da COLUNA do 3º Quartil && Define o Final da COLUNA do 3º Quartil
   int iniColQ3 = meioCol;
-  int fimColQ3 = fimCol;
+  int fimColQ3 = fimCol-1;
   // 0 0 0 0 0
   // 0 0 0 0 0
   // X X X 0 0
 
   // Define o Inicio da LINHA do 4º Quartil && Define o Final da LINHA do 4º Quartil
   int iniLinQ4 = meioLin;
-  int fimLinQ4 = fimLin;
+  int fimLinQ4 = fimLin-1;
   // Define o Inicio da COLUNA do 4º Quartil && Define o Final da COLUNA do 4º Quartil
   int iniColQ4 = meioCol;
-  int fimColQ4 = fimCol;
+  int fimColQ4 = fimCol-1;
   // 0 0 0 0 0
   // 0 0 0 0 0
   // 0 0 0 X X
 
-  char codigo[2400000];
+  char codigo[500];
   strcat(codigo, "X");
 
   // Armazena os limites de cada quadrante em um array bidimensional
@@ -121,22 +123,24 @@ int divideMatriz(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniCo
       // Se a cor for uniforme, armazena a cor no código
       strcat(codigo, (matriz[limites[q][0]][limites[q][2]] == 0 ? "B" : "P"));
     } else {
-      // Se a cor não for uniforme, divide o quadrante e armazena o código do subquadrante
-      for(i = limites[q][0]; i < limites[q][1]; ++i) {
-        for (j = limites[q][2]; j < limites[q][3]; ++j)
+      // Se a cor não for uniforme, Verifica se estamos no menor tamanho possível 
+      if (limites[q][1] - limites[q][0] < 2 && limites[q][3] - limites[q][2] < 2)
+      {
+        // Se estamos no menor tamanho possível, armazena a cor no código
+        for (i = limites[q][0]; i < limites[q][1]; ++i)
         {
-          strcat(codigo, matriz[i][j] == 0 ? "B" : "P");
+          for (j = limites[q][2]; j < limites[q][3]; ++j)
+          {
+            strcat(codigo, matriz[i][j] == 0 ? "B" : "P");
+          }
         }
+      } else {
+        // Se não estamos no menor tamanho possível, divide o quadrante
+        strcat(codigo, divideMatriz(matriz, limites[q][0], limites[q][1], limites[q][2], limites[q][3]));
       }
-      divideMatriz(matriz, limites[q][0], limites[q][1], limites[q][2], limites[q][3]);
     }
   }
 
-  return 0;
-  /*    simulando comportamento:
-  chamamos DIVIDEMATRIZ 1º vez
-  separa os quadrantes
-  verifica cor do quadrante
-  chama DIVIDEMATRIZ 2° vez
-  */
+  // Após percorrer todos os quadrantes, retorna o código armazenado
+  return codigo;
 }
