@@ -17,7 +17,11 @@
   bool cor_uniforme(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniCol, int fimCol);
   void imprimeMatriz(int tamLin, int tamCol, int matriz[MAX_LIN][MAX_COL]);
   void preencherQuadrante(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniCol, int fimCol);
+<<<<<<< HEAD
   void imprimeCodigo(char codigo[], int tam);
   void divideMatriz(int matriz[MAX_LIN][MAX_COL], char codigo[], int iniLin, int fimLin, int iniCol, int fimCol);
+=======
+  void divideMatriz(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniCol, int fimCol, char *codigo);
+>>>>>>> 20851950f707e09ea204181fadb1b3a20f6e725d
 
 #endif

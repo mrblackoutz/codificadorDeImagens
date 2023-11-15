@@ -14,11 +14,12 @@ bool cor_uniforme(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniC
 
   // Percorre todos os elementos da matriz
   int i,j;
-  for (i = iniLin; i < fimLin; i++)
+  for (i = iniLin; i <= fimLin; i++)
   {
-    for (j = iniCol; j < fimCol; j++)
+    for (j = iniCol; j <= fimCol; j++)
     {
       // Se algum elemento tiver uma cor diferente da cor armazenada, retorna falso
+      matriz[i][j] != cor ? printf("Cor diferente: matriz[%d][%d]\n", i, j) : printf("Cor igual: matriz[%d][%d]\n", i, j);
       if (matriz[i][j] != cor)
       {
         return false;
@@ -55,6 +56,7 @@ void preencherQuadrante(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, in
   }
 }
 
+<<<<<<< HEAD
 void imprimeCodigo(char codigo[], int tam){
   for(int c = 0; c < tam; c++){
     printf("%c", codigo[c]);
@@ -62,54 +64,61 @@ void imprimeCodigo(char codigo[], int tam){
 }
 
 void divideMatriz(int matriz[MAX_LIN][MAX_COL], char codigo[], int iniLin, int fimLin, int iniCol, int fimCol) {
+=======
+void divideMatriz(int matriz[MAX_LIN][MAX_COL], int posiniLin, int posfimLin, int posiniCol, int posfimCol, char *codigo)
+{
+>>>>>>> 20851950f707e09ea204181fadb1b3a20f6e725d
   int i=0;
   int j=0;
   int q=0;
-  
-  int meioLin = (int)ceil((iniLin + fimLin) / 2);
-  int meioCol = (int)ceil((iniCol + fimCol) / 2);
+
+  int meioLin = (int)ceil((posiniLin + posfimLin+1) / 2.0);
+  int meioCol = (int)ceil((posiniCol + posfimCol+1) / 2.0);
 
   // Define o Inicio da LINHA do 1º Quartil && Define o Final da LINHA do 1º Quartil
-  int iniLinQ1 = iniLin;
+  int iniLinQ1 = posiniLin;
   int fimLinQ1 = meioLin-1;
   // Define o Inicio da COLUNA do 1º Quartil && Define o Final da COLUNA do 1º Quartil
-  int iniColQ1 = iniCol;
+  int iniColQ1 = posiniCol;
   int fimColQ1 = meioCol-1;
   // X X X 0 0
   // X X X 0 0
   // 0 0 0 0 0
 
   // Define o Inicio da LINHA do 2º Quartil && Define o Final da LINHA do 2º Quartil
-  int iniLinQ2 = meioLin;
-  int fimLinQ2 = fimLin-1;
+  int iniLinQ2 = posiniLin;
+  int fimLinQ2 = meioLin-1;
   // Define o Inicio da COLUNA do 2º Quartil && Define o Final da COLUNA do 2º Quartil
-  int iniColQ2 = iniCol;
-  int fimColQ2 = meioCol-1;
+  int iniColQ2 = meioCol;
+  int fimColQ2 = posfimCol;
   // 0 0 0 X X
   // 0 0 0 X X
   // 0 0 0 0 0
 
   // Define o Inicio da LINHA do 3º Quartil && Define o Final da LINHA do 3º Quartil
-  int iniLinQ3 = iniLin;
-  int fimLinQ3 = meioLin-1;
+  int iniLinQ3 = meioLin;
+  int fimLinQ3 = posfimLin;
   // Define o Inicio da COLUNA do 3º Quartil && Define o Final da COLUNA do 3º Quartil
-  int iniColQ3 = meioCol;
-  int fimColQ3 = fimCol-1;
+  int iniColQ3 = posiniCol;
+  int fimColQ3 = meioCol-1;
   // 0 0 0 0 0
   // 0 0 0 0 0
   // X X X 0 0
 
   // Define o Inicio da LINHA do 4º Quartil && Define o Final da LINHA do 4º Quartil
   int iniLinQ4 = meioLin;
-  int fimLinQ4 = fimLin-1;
+  int fimLinQ4 = posfimLin;
   // Define o Inicio da COLUNA do 4º Quartil && Define o Final da COLUNA do 4º Quartil
   int iniColQ4 = meioCol;
-  int fimColQ4 = fimCol-1;
+  int fimColQ4 = posfimCol;
   // 0 0 0 0 0
   // 0 0 0 0 0
   // 0 0 0 X X
 
+<<<<<<< HEAD
   //char codigo[500];
+=======
+>>>>>>> 20851950f707e09ea204181fadb1b3a20f6e725d
   strcat(codigo, "X");
 
   // Armazena os limites de cada quadrante em um array bidimensional
@@ -129,24 +138,41 @@ void divideMatriz(int matriz[MAX_LIN][MAX_COL], char codigo[], int iniLin, int f
       // Se a cor for uniforme, armazena a cor no código
       strcat(codigo, (matriz[limites[q][0]][limites[q][2]] == 0 ? "B" : "P"));
     } else {
-      // Se a cor não for uniforme, Verifica se estamos no menor tamanho possível 
-      if (limites[q][1] - limites[q][0] < 2 && limites[q][3] - limites[q][2] < 2)
+      // Se a cor não for uniforme, Verificamos se estamos no menor tamanho possível    
+      if (limites[q][1] - limites[q][0] < 1 && limites[q][3] - limites[q][2] < 1)
       {
-        // Se estamos no menor tamanho possível, armazena a cor no código
-        for (i = limites[q][0]; i < limites[q][1]; ++i)
+        // Se estamos com o quadrante no menor tamanho possível, vamos armazena a cor no código
+        
+        // Verificamos se temos apenas uma linha, se sim, então não há o 3º e 4º Quadrante
+        if (posiniLin == posfimLin)
         {
-          for (j = limites[q][2]; j < limites[q][3]; ++j)
+          /* code */
+        } else if (posiniCol == posfimCol)
+        // Verificamos se temos apenas uma coluna, se sim, então não há o 2º e 4º Quadrante
+        {
+          /* code */
+        } else {
+          for (i = limites[q][0]; i <= limites[q][1]; ++i)
           {
-            strcat(codigo, matriz[i][j] == 0 ? "B" : "P");
+            for (j = limites[q][2]; j <= limites[q][3]; ++j)
+            {
+              strcat(codigo, matriz[i][j] == 0 ? "B" : "P");
+            }
           }
         }
+
       } else {
         // Se não estamos no menor tamanho possível, divide o quadrante
-        strcat(codigo, divideMatriz(matriz, limites[q][0], limites[q][1], limites[q][2], limites[q][3]));
+        // e ao terminar a pilha, o código(string) é passado como endereço no parametro
+        // alterando diretamente o conteudo do código original.
+        divideMatriz(matriz, limites[q][0], limites[q][1], limites[q][2], limites[q][3], codigo);
       }
     }
   }
+<<<<<<< HEAD
 
   // Após percorrer todos os quadrantes, retorna o código armazenado
   //return codigo;
+=======
+>>>>>>> 20851950f707e09ea204181fadb1b3a20f6e725d
 }
