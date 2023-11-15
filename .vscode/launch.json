@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/build/Debug/outDebug",
+      "cwd": "c:/Users/55519/OneDrive/Documentos/GitHub/codificadorDeImagens",
+      "program": "c:/Users/55519/OneDrive/Documentos/GitHub/codificadorDeImagens/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

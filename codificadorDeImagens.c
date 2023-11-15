@@ -25,8 +25,11 @@ int main()
   }
    printf("\n ");
   }
+  
+  char codigo[MAX_COL * MAX_LIN * 2] = divideMatriz(v, 0, 5, 0, 7);
+  int tamCodigo = sizeof(codigo) / sizeof(char);
 
-  divideMatriz(v, 0, 5, 0, 7);
+  imprimeCodigo(codigo, tamCodigo);
 
   return 0;
 }

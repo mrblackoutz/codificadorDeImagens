@@ -55,7 +55,13 @@ void preencherQuadrante(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, in
   }
 }
 
-char divideMatriz(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniCol, int fimCol) {
+void imprimeCodigo(char codigo[], int tam){
+  for(int c = 0; c < tam; c++){
+    printf("%c", codigo[c]);
+  }
+}
+
+void divideMatriz(int matriz[MAX_LIN][MAX_COL], char codigo[], int iniLin, int fimLin, int iniCol, int fimCol) {
   int i=0;
   int j=0;
   int q=0;
@@ -103,7 +109,7 @@ char divideMatriz(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniC
   // 0 0 0 0 0
   // 0 0 0 X X
 
-  char codigo[500];
+  //char codigo[500];
   strcat(codigo, "X");
 
   // Armazena os limites de cada quadrante em um array bidimensional
@@ -142,5 +148,5 @@ char divideMatriz(int matriz[MAX_LIN][MAX_COL], int iniLin, int fimLin, int iniC
   }
 
   // Após percorrer todos os quadrantes, retorna o código armazenado
-  return codigo;
+  //return codigo;
 }
